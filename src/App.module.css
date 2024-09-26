@@ -18,25 +18,22 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
   font-family: 'Inter Variable', sans-serif;
   font-style: normal;
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically (optional) */
-  height: 100vh; /* Full height to ensure it centers properly */
-
-  /* letter-spacing: 0px;
+  letter-spacing: 0px;
   line-height: 24px;
-  margin-bottom: 16px; Paragraph spacing if applicable */
+  margin-bottom: 16px;
   font-weight: 500;
 }
 .wrapper {
-  max-width: 1120px; /* Limit the width to 1120px */
-  width: 100%;
+  max-width: 1120px;
   margin: 0 auto; /* Center the wrapper horizontally */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  text-align: center;
 }
 
 a {
@@ -44,7 +41,7 @@ a {
   text-decoration: none;
 }
 
-.header {
+.heading {
   display: flex;
   gap: 2em;
   padding: 20px 16px;
@@ -56,15 +53,15 @@ a {
 
   nav ul {
     display: flex;
-
+    justify-content: center;
     gap: 2rem;
     list-style: none;
 
     font-weight: 400;
-    transition: background-color 0.3s ease;
-    a {
-      opacity: 0.8;
 
+    a {
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
       &:hover {
         opacity: 1;
       }
@@ -79,16 +76,6 @@ a {
   height: 480px;
 }
 
-.layer1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Ensures the videos fit nicely */
-  -webkit-font-smoothing: antialiased;
-}
-
 .layer2 {
   position: absolute;
   top: 0;
@@ -96,7 +83,17 @@ a {
   width: 100%;
   height: auto;
   object-fit: cover; /* Ensures the videos fit nicely */
-  -webkit-font-smoothing: antialiased;
+  opacity: 0; /* Start with opacity 0 */
+  transition: opacity 2s ease; /* Smooth transition */
+}
+
+.layer1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the videos fit nicely */
 }
 
 .logo {
@@ -110,14 +107,16 @@ a {
 .headerButtonLeft {
   background-color: var(--color-background);
   border-radius: 6px;
-  font-weight: 400;
+  font-weight: 600;
 
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.1);
   border-width: 1px;
   border-top-color: rgba(255, 255, 255, 0.3);
+
   color: white; /* Ensure text color is set */
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1rem;
+  margin-right: 0.5rem;
   transition: background-color 0.3s ease;
   box-shadow: 0.2;
 
@@ -133,25 +132,96 @@ a {
 }
 
 .headerButtonRight {
-  background-color: var(--color-background);
+  text-align: center;
+  background: linear-gradient(to bottom, #7462e2, #644fe3);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.457);
+  border-width: 1.5px;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-left-color: rgba(255, 255, 255, 0.1);
+  border-right-color: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: 0.5s ease;
 
-  padding: 0.25rem 1rem;
-  color: white; /* Ensure text color is set */
-  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #8574e3;
+    color: white; /* Text remains fully opaque */
+  }
+}
+
+.firstPart {
+  gap: 2rem;
+}
+
+.h1Margin {
+  margin: 2rem;
+  line-height: 4rem;
+}
+
+.buttonLearn {
+  text-align: center;
+
+  background-color: var(--color-text);
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-width: 1px;
+  border-radius: 30px;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-left-color: rgba(255, 255, 255, 0.1);
+  border-right-color: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--color-background);
+  margin: 1rem auto;
+  transition: background-color 0.5s ease;
   &:hover {
     background-color: rgba(
       255,
       255,
       255,
-      0.1
+      0
     ); /* Set background opacity to 20% */
     color: white; /* Text remains fully opaque */
   }
 }
 
-/* .startHere2 {
-} */
+.visible {
+  opacity: 1; /* When the first video ends, the second video will fade in */
+}
 
-.firstPart {
-  gap: 2rem;
+.buttonStartForFree {
+  text-align: center;
+  background: linear-gradient(to bottom, #7462e2, #644fe3);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-width: 1.5px;
+
+  border-radius: 6px;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: 0.5s ease;
+  display: inline-block;
+  margin: 1rem auto;
+  margin-top: 4rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+
+  &:hover {
+    background-color: #8574e3;
+    color: white; /* Text remains fully opaque */
+  }
+}
+
+p {
+  line-height: 2rem;
+  opacity: 0.8;
+  font-size: 1.3rem;
+  font-weight: 400;
 }
