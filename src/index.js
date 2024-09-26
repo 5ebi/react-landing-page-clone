@@ -1,5 +1,4 @@
 import '@fontsource-variable/inter';
-import './index.module.css'; // Importing global CSS without assigning it to a variable
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

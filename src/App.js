@@ -1,12 +1,13 @@
-import styles from './App.module.css'; // Keep your local styles
+import styles from './App.module.css';
 import logo from './svg/logo.svg';
 
 export default function App() {
   return (
-    <>
+    <div className={styles.wrapper}>
       <header>
         <div className={styles.header}>
           <img src={logo} alt="Logo" className={styles.logo} />
+
           <nav>
             <ul>
               <li>
@@ -29,6 +30,9 @@ export default function App() {
             </a>
           </div>
         </div>
+        <hr
+          style={{ height: '0.1px', backgroundColor: '#ccc', border: 'none' }}
+        />
       </header>
 
       <main>
@@ -59,8 +63,8 @@ export default function App() {
             </p>
             <a href="/">Start for free</a>
           </section>
-
-          <div className={styles.container_row}>
+          <div style={{ padding: '20px' }}></div>
+          <div className={styles.containervids}>
             <video
               className={styles.layer1}
               src="https://framerusercontent.com/assets/pSo8D917e0J1tbDXmiSXrdeHcY.mp4"
@@ -78,6 +82,6 @@ export default function App() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }
